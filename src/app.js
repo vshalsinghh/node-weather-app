@@ -6,6 +6,7 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
 const app = express();
+const port = process.env.PORT || 3000;
 //Define Paths for express config
 const publicDir = path.join(__dirname,'../public');
 const viewsDir = path.join(__dirname, '../templates/views');
@@ -26,14 +27,14 @@ app.get('',(req,res) => {
 })
 app.get('/about',(req,res) => {
     res.render('about' , {
-        title:'About Me',
+        title:'About',
         name:'Vishal Singh'
     })
 })
 app.get('/help',(req,res) => {
     res.render('help' , {
-        title:'Help me MOFO',
-        message:'My little brother has been crushed by the Black Monkeys.',
+        title:'Help',
+        message:'Contact us if u need any help.',
         name:'Vishal Singh'
     })
 })
@@ -83,6 +84,6 @@ app.get('*', (req, res) => {
         
     })
 })
-app.listen(3000, () => {
-    console.log('express server is up')
+app.listen(port, () => {
+    console.log('The server is up at port ' + port);
 })
