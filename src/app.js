@@ -34,7 +34,7 @@ app.get('/about',(req,res) => {
 app.get('/help',(req,res) => {
     res.render('help' , {
         title:'Help',
-        message:'Contact us if u need any help.',
+        message:'Contact us if u need more help.',
         name:'Vishal Singh'
     })
 })
@@ -45,7 +45,7 @@ app.get('/weather', (req, res) => {
     const address = req.query.address ;
     if(!req.query.address){
         return res.send({
-            error: 'Must add address in the query string'
+            error: 'Must provide an address string'
         })
     }
     geocode(address , (error, { lattitude, longitude, location} = {}) => {
